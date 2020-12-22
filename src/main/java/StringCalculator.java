@@ -34,6 +34,9 @@ public class StringCalculator {
         for(String s : numbers)
         {
             int num = Integer.parseInt(s);
+
+            if(num > 1000) num = 0;
+
             if(num < 0)
             {
                 negativeNumPresent = true;
