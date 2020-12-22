@@ -39,4 +39,12 @@ public class StringCalculatorTest {
         assertEquals(250, stringCalculator.add("150,50\n25,25"));
         assertEquals(500, stringCalculator.add("150,50\n25,25,150,50,25\n25"));
     }
+
+    @Test
+    void supportforDelimitersTest() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        assertEquals(200, stringCalculator.add("//@\n150@50"));
+        assertEquals(3, stringCalculator.add("//;\n1;2"));
+    }
 }
