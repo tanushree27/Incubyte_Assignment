@@ -58,7 +58,7 @@ public class StringCalculatorTest {
         }
         catch(RuntimeException ex)
         {
-            //Exception catch
+            assertEquals("Negatives not allowed : -1", ex.getMessage());
         }
     }
 }

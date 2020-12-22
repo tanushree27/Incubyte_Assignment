@@ -1,4 +1,6 @@
 import java.util.regex.*;
+import java.util.*;
+
 public class StringCalculator {
 
     public int add (String str) {
@@ -9,7 +11,8 @@ public class StringCalculator {
         String customDelimiter;
         boolean isDelimiterPresent = false;
         String[] numbers = new String[str.length()];
-
+        ArrayList<Integer> negativeNumbers = new ArrayList<Integer>();
+        boolean negativeNumPresent = false;
         if(str.startsWith("//"))
         {
             isDelimiterPresent = true;
@@ -30,7 +33,23 @@ public class StringCalculator {
 
         for(String s : numbers)
         {
-            sum += Integer.parseInt(s);
+            int num = Integer.parseInt(s);
+            if(num < 0)
+            {
+                negativeNumPresent = true;
+                negativeNumbers.add(num);
+            }
+            sum += num;
+        }
+
+        if(negativeNumPresent)
+        {
+            StringBuilder negativeNumStr = new StringBuilder();
+            for(int i = 0; i < negativeNumbers.size(); i++)
+            {
+                negativeNumStr.append(" "+negativeNumbers.get(i));
+            }
+            throw new RuntimeException("Negatives not allowed :"+negativeNumStr);
         }
 
         return sum;
