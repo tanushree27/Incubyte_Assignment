@@ -68,4 +68,11 @@ public class StringCalculatorTest {
 
         assertEquals(1003, stringCalculator.add("1000,2000,3"));
     }
+
+    @Test
+    void delimiterCanBeASpecialRegexCharTest() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        assertEquals(1003, stringCalculator.add("//.\n1000.2000.3"));
+    }
 }
