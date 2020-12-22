@@ -22,4 +22,12 @@ public class StringCalculatorTest {
 
         assertEquals(200, stringCalculator.add("150,50"));
     }
+
+    @Test
+    void AnyNumberStringTest() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        assertEquals(250, stringCalculator.add("150,50,25,25"));
+        assertEquals(500, stringCalculator.add("150,50,25,25,150,50,25,25"));
+    }
 }
