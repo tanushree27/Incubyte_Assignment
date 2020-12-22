@@ -47,4 +47,18 @@ public class StringCalculatorTest {
         assertEquals(200, stringCalculator.add("//@\n150@50"));
         assertEquals(3, stringCalculator.add("//;\n1;2"));
     }
+
+    @Test
+    void negativesNotAllowedTest() {
+        StringCalculator stringCalculator = new StringCalculator();
+        try
+        {
+            stringCalculator.add("-1,2,3");
+            fail("Exception expected.");
+        }
+        catch(RuntimeException ex)
+        {
+            //Exception catch
+        }
+    }
 }
