@@ -16,7 +16,7 @@ public class StringCalculator {
         if(str.startsWith("//"))
         {
             isDelimiterPresent = true;
-            Matcher m = Pattern.compile("//(.)\n(.*)").matcher(str);
+            Matcher m = Pattern.compile("//\\[(.*)\\]\n(.*)").matcher(str);
             m.matches();
             customDelimiter = m.group(1);
             String numbersLeft = m.group(2);
