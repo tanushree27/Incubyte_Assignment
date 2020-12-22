@@ -30,4 +30,13 @@ public class StringCalculatorTest {
         assertEquals(250, stringCalculator.add("150,50,25,25"));
         assertEquals(500, stringCalculator.add("150,50,25,25,150,50,25,25"));
     }
+
+    @Test
+    void newLinesBetweenNumbersTest() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        assertEquals(20, stringCalculator.add("1\n2,17"));
+        assertEquals(250, stringCalculator.add("150,50\n25,25"));
+        assertEquals(500, stringCalculator.add("150,50\n25,25,150,50,25\n25"));
+    }
 }
