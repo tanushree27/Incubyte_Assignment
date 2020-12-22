@@ -20,7 +20,7 @@ public class StringCalculator {
             m.matches();
             customDelimiter = m.group(1);
             String numbersLeft = m.group(2);
-            numbers = numbersLeft.split(customDelimiter);
+            numbers = numbersLeft.split(Pattern.quote(customDelimiter));
         }
 
         if(!isDelimiterPresent)
