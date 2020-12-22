@@ -44,8 +44,8 @@ public class StringCalculatorTest {
     void supportforDelimitersTest() {
         StringCalculator stringCalculator = new StringCalculator();
 
-        assertEquals(200, stringCalculator.add("//@\n150@50"));
-        assertEquals(3, stringCalculator.add("//;\n1;2"));
+        assertEquals(200, stringCalculator.add("//[@]\n150@50"));
+        assertEquals(3, stringCalculator.add("//[;]\n1;2"));
     }
 
     @Test
@@ -73,6 +73,13 @@ public class StringCalculatorTest {
     void delimiterCanBeASpecialRegexCharTest() {
         StringCalculator stringCalculator = new StringCalculator();
 
-        assertEquals(1003, stringCalculator.add("//.\n1000.2000.3"));
+        assertEquals(1003, stringCalculator.add("//[.]\n1000.2000.3"));
+    }
+
+    @Test
+    void delimiterWithMultipleCharsTest() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        assertEquals(6, stringCalculator.add("//[****]\n1****2****3"));
     }
 }
